@@ -13,4 +13,5 @@ groceryList.list.push(potatoes)
 
 // Use the prop "store" for your store
 ReactDOM.render(<App />, document.getElementById('root'));
+
 registerServiceWorker();
