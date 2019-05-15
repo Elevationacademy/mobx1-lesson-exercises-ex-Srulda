@@ -8,8 +8,8 @@ export class ShoppingList {
     checkItem = () => {
         // your code here
     }
-    addItem = () => {
-        // your code here
+   @action addItem = (name, location) => {
+    this.list.push(new Item(name, location))
     }
     editItem = () => {
         // your code here

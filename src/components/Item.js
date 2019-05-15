@@ -13,13 +13,12 @@ class Item extends Component {
         //your code here
       }
     render() {
+      let item = this.props.item
         return (
-            <div className = "">
-      {/*   your code here
-            each item should be in an input checkbox
-            it should display the item name and location
-            it should have both an edit button and a delete button
-      */} 
+            <div className = "item">
+      <input type="checkbox" /> {item.name} &nbsp; {item.location} &nbsp;
+      <button className = "editButton"><i className="far fa-edit"></i></button>
+      <button><i className="fas fa-trash-alt"></i></button>
             </div>)
     }
 }
