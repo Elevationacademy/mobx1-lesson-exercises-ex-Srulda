@@ -3,24 +3,35 @@ import { observer } from 'mobx-react'
 
 @observer
 class Item extends Component {
-    checkItem = () => {
+  checkItem = e => {
+    this.props.store.checkItem(e.target.value);
+  };
+  editItem = () => {
+    let name = this.props.item.name;
+    let newLocation = prompt("Edit Location");
+    this.props.store.editItem(name, newLocation);
+  };
 
-      }
-      editItem = () => {
-
-      }
-      deleteItem = () => {
-        
-      }
+  deleteItem = () => {
+    let name = this.props.item.name;
+    this.props.store.deleteItem(name);
+  };
     render() {
       let item = this.props.item
         return (
-            <div className = "item">
-      <input type="checkbox" /> {item.name} &nbsp; {item.location} &nbsp;
-      <button className = "editButton"><i className="far fa-edit"></i></button>
-      <button><i className="fas fa-trash-alt"></i></button>
-            </div>)
+            
+      <div className={item.completed ? "crossed" : null}>
+        <input type="checkbox" value={item.name} onClick={this.checkItem} />{" "}
+        {item.name} {item.location}
+        <button className="editButton" onClick={this.editItem}>
+          <i className="far fa-edit"></i>
+        </button>
+        <button className="delete-button" onClick={this.deleteItem}>
+          <i className="fas fa-trash-alt"></i>
+        </button>
+      </div>)
     }
 }
 
 export default Item
+
